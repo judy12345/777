@@ -1,0 +1,183 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 4205 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+12 TL
+(# CausalAudit: Counterfactual Auditing of Safety Violations in Tool-Using AI Agents) Tj
+T*
+( ) Tj
+T*
+(**Author:** Yuwei Han \(draft by assistant collaboration\)) Tj
+T*
+(**Target venues:** ACM CCS / IEEE S&P / USENIX Security) Tj
+T*
+( ) Tj
+T*
+(## Abstract) Tj
+T*
+(Runtime safety monitors for LLM agents can block unsafe actions, yet they rarely provide forens) Tj
+T*
+(ic explanations that identify root causes and minimal repairs. We present **CausalAudit**, a tr) Tj
+T*
+(ace-grounded framework that converts policy violations into a constrained counterfactual search) Tj
+T*
+( problem. Given a violated trace and a structured Policy Intermediate Representation \(Policy IR) Tj
+T*
+(\), CausalAudit returns \(1\) causal explanations via deletion-based root-cause edits, and \(2\) cor) Tj
+T*
+(rective explanations via insertion/replacement repairs. We implement a deterministic compliance) Tj
+T*
+( checker with taint-aware information-flow reasoning and evaluate on a synthetic benchmark cove) Tj
+T*
+(ring authorization, information flow, and sequential constraints.) Tj
+T*
+( ) Tj
+T*
+(## 1. Introduction) Tj
+T*
+(Tool-using AI agents now issue network requests, file operations, and delegated sub-agent calls) Tj
+T*
+(. In regulated settings, post-incident auditing requires actionable root-cause reports. Existin) Tj
+T*
+(g prevention-oriented systems emphasize blocking but under-serve explanation. We argue that exp) Tj
+T*
+(lanation should be modeled as **minimal trace repair** under policy semantics.) Tj
+T*
+( ) Tj
+T*
+(## 2. Problem Formulation) Tj
+T*
+(Let a trace be `T = \(e1..en\)` and policy be `P`. If `T` violates `P`, CausalAudit seeks a minim) Tj
+T*
+(al edit `?*` such that `?*\(T\)` is policy-compliant and semantically valid. Edit primitives are ) Tj
+T*
+(delete, insert, and replace.) Tj
+T*
+( ) Tj
+T*
+(## 3. Method) Tj
+T*
+(### 3.1 Trace Schema) Tj
+T*
+(We model events with typed records \(`UserMessage`, `ToolCall`, `FileAccess`, `NetworkRequest`, ) Tj
+T*
+(etc.\) and metadata fields \(`domain`, `tool_name`, `derived_from`, `payload_tag`\).) Tj
+T*
+( ) Tj
+T*
+(### 3.2 Policy IR) Tj
+T*
+(Policy IR fields: action, condition, requirement, timing, exception, and family \(`authorization) Tj
+T*
+(`, `infoflow`, `sequential`\).) Tj
+T*
+( ) Tj
+T*
+(### 3.3 Compliance Checker) Tj
+T*
+(The checker performs event filtering, condition matching, exception filtering, requirement timi) Tj
+T*
+(ng checks, and taint propagation for infoflow.) Tj
+T*
+( ) Tj
+T*
+(### 3.4 Counterfactual Engine) Tj
+T*
+(Candidate edits are enumerated and ranked by semantic cost: delete < insert < replace. A candid) Tj
+T*
+(ate is accepted iff re-checking yields compliance.) Tj
+T*
+( ) Tj
+T*
+(## 4. Prototype Implementation) Tj
+T*
+(We release an MVP Python implementation with:) Tj
+T*
+(- Deterministic checker and evidence chains) Tj
+T*
+(- Cost-ranked counterfactual search) Tj
+T*
+(- Benchmark generation scripts) Tj
+T*
+(- End-to-end demo and unit tests) Tj
+T*
+( ) Tj
+T*
+(## 5. Evaluation Snapshot) Tj
+T*
+(On benchmark v0 \(30 cases\), the prototype currently achieves:) Tj
+T*
+(- Violation recall: 1.0) Tj
+T*
+(- Root-cause exact match: 1.0) Tj
+T*
+(- Corrective compliance rate: 1.0) Tj
+T*
+( ) Tj
+T*
+(These results validate pipeline correctness on controlled traces; larger stress tests and human) Tj
+T*
+( audit studies remain future work.) Tj
+T*
+( ) Tj
+T*
+(## 6. Limitations and Ethics) Tj
+T*
+(The current benchmark is synthetic and policy scope is restricted to three families. Real deplo) Tj
+T*
+(yments require richer semantics \(cross-trace state, identity binding, partial observability\) an) Tj
+T*
+(d human oversight to avoid over-trusting automatic explanations.) Tj
+T*
+( ) Tj
+T*
+(## 7. Conclusion) Tj
+T*
+(CausalAudit reframes agent safety auditing as counterfactual minimal repair. This complements b) Tj
+T*
+(locking-based safety stacks and supports explainable, operationally actionable post-incident an) Tj
+T*
+(alysis.) Tj
+T*
+( ) Tj
+T*
+(## References \(selected\)) Tj
+T*
+(1. Ding et al., Policy Compiler for Secure Agentic Systems, 2026.) Tj
+T*
+(2. Poskitt et al., AgentSpec, ICSE 2026.) Tj
+T*
+(3. Wachter et al., Counterfactual Explanations, 2018.) Tj
+T*
+(4. Yao et al., ReAct, ICLR 2023.) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 4 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+5 0 obj
+<< /Type /Catalog /Pages 4 0 R >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000004336 00000 n 
+0000004462 00000 n 
+0000004519 00000 n 
+trailer
+<< /Size 6 /Root 5 0 R >>
+startxref
+4568
+%%EOF
